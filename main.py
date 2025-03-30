@@ -1,5 +1,53 @@
 """
-Este projeto foi desenvolvido com o intuito de facilitar os cálculos matemáticos de área e volume.
+Projeto foi desenvolvido para realizar cálculos matemáticos de área e volume.
+
+Author: Daniel Torres de Andrade
+
+Versão: __version__.py
+Requerimentos: requeriments.txt
+
+Funcionalidades:
+    - Cálculo de Área
+    - Cálculo de Volume:
+
+Exemplos:
+    Cálculo de Área:
+        - Calcular a área de um retângulo: python main.py
+            Escolha uma opção abaixo:
+            1 -> Área
+            2 -> Volume
+            3 -> Sair
+            Digite a opção desejada: 1
+            Escolha uma opção abaixo:  
+            1 -> Área do Retângulo     
+            2 -> Área do Triângulo     
+            3 -> Área da Circunferência
+            Digite a opção desejada: 1 
+            Digite o valor da base: 5
+            Digite o valor da altura: 5
+            A area do retângulo e: 25.0cm²
+
+    Cálculo de Volume:
+        - Calcular o volume de uma esfera: python main.py
+            Escolha uma opção abaixo:
+            1 -> Área
+            2 -> Volume
+            3 -> Sair
+            Digite a opção desejada: 2
+            Escolha uma opção abaixo:
+            1 -> Volume do Cilindro
+            2 -> Volume do Cubo
+            3 -> Volume da Esfera
+            4 -> Volume do Paralelepipedo     
+            5 -> Volume da Piramide Retangular
+            6 -> Volume da Piramide Triangular
+            7 -> Volume do Prisma Triangular  
+            Digite a opção desejada: 3
+            Digite o valor do raio: 10
+            O volume da esfera e: 4188.790205066666cm³
+
+Observações:
+    As interações do usuário são registradas em um arquivo de log.
 """
 
 from log import log
@@ -27,20 +75,20 @@ def calculo_area(opcao_area) -> None:
             area = Area(base, altura)
             resultado = area.retangulo()
             log("INFO", getpass.getuser(), "Area do Retangulo", resultado)
-            print(f"A area do retângulo e: {resultado}cm²")
+            print(f"A area do retângulo e: {resultado}")
         case '2': # Área do Triângulo
             base = float(input("Digite o valor da base: "))
             altura = float(input("Digite o valor da altura: "))
             area = Area(base, altura)
             resultado = area.triangulo()
             log("INFO", getpass.getuser(), "Area do Triangulo", resultado)
-            print(f"A area do triângulo e: {resultado}cm²")
+            print(f"A area do triângulo e: {resultado}")
         case '3': # Área da Circunferência
             raio = float(input("Digite o valor do raio: "))
             area = Area(raio, 0)
             resultado = area.circunferencia()
             log("INFO", getpass.getuser(), "Area da Circunferencia", resultado)
-            print(f"A area da circunferência e: {resultado}cm²")
+            print(f"A area da circunferência e: {resultado}")
         case _:
             resultado = "None"
             log("WARNING", getpass.getuser(), "Nenhum calculo realizado", resultado)
@@ -68,19 +116,19 @@ def calculo_volume(opcao_volume) -> None:
             volume = Volume(raio, altura, 0)
             resultado = volume.cilindro()
             log("INFO", getpass.getuser(), "Volume do Cilindro", resultado)
-            print(f"O volume do cilindro e: {resultado}cm³")
+            print(f"O volume do cilindro e: {resultado}")
         case '2': # Volume do Cubo
             lado = float(input("Digite o valor de um lado: "))
             volume = Volume(lado, 0, 0)
             resultado = volume.cubo()
             log("INFO", getpass.getuser(), "Volume do Cubo", resultado)
-            print(f"O volume do cubo e: {resultado}cm³")
+            print(f"O volume do cubo e: {resultado}")
         case '3': # Volume do Esfera
             raio = float(input("Digite o valor do raio: "))
             volume = Volume(raio, 0, 0)
             resultado = volume.esfera()
             log("INFO", getpass.getuser(), "Volume da Esfera", resultado)
-            print(f"O volume da esfera e: {resultado}cm³")
+            print(f"O volume da esfera e: {resultado}")
         case '4': # Volume do Paralelepipedo
             base = float(input("Digite o valor da base: "))
             altura = float(input("Digite o valor da altura: "))
@@ -88,7 +136,7 @@ def calculo_volume(opcao_volume) -> None:
             volume = Volume(base, altura, profundidade)
             resultado = volume.paralelepipedo()
             log("INFO", getpass.getuser(), "Volume do Paralelepipedo", resultado)
-            print(f"O volume do paralelepipedo e: {resultado}cm³")
+            print(f"O volume do paralelepipedo e: {resultado}")
         case '5': # Volume da Piramide Retangular
             base = float(input("Digite o valor da base: "))
             profundidade = float(input("Digite o valor da profundidade: "))
@@ -96,7 +144,7 @@ def calculo_volume(opcao_volume) -> None:
             volume = Volume(base, altura, profundidade)
             resultado = volume.piramide_retangular()
             log("INFO", getpass.getuser(), "Volume da Piramide Retangular", resultado)
-            print(f"O volume da piramide retangular e: {resultado}cm³")
+            print(f"O volume da piramide retangular e: {resultado}")
         case '6': # Volume da Piramide Triangular
             base = float(input("Digite o valor da base: "))
             profundidade = float(input("Digite o valor da profundidade: "))
@@ -104,7 +152,7 @@ def calculo_volume(opcao_volume) -> None:
             volume = Volume(base, altura, profundidade)
             resultado = volume.piramide_triangular()
             log("INFO", getpass.getuser(), "Volume da Piramide Triangular", resultado)
-            print(f"O volume da piramide triangular e: {resultado}cm³")
+            print(f"O volume da piramide triangular e: {resultado}")
         case '7': # Volume do Prisma Triangular
             base = float(input("Digite o valor da base: "))
             profundidade = float(input("Digite o valor da profundidade: "))
@@ -112,7 +160,7 @@ def calculo_volume(opcao_volume) -> None:
             volume = Volume(base, altura, profundidade)
             resultado = volume.prisma_triangular()
             log("INFO", getpass.getuser(), "Volume do Prisma Triangular", resultado)
-            print(f"O volume do prisma triangular e: {resultado}cm³")
+            print(f"O volume do prisma triangular e: {resultado}")
         case _:
             resultado = "None"
             log("WARNING", getpass.getuser(), "Nenhum calculo realizado", resultado)
@@ -126,7 +174,7 @@ def main() -> None:
         2 -> Volume
         3 -> Sair
     """
-    print("Calculadora de Área e Volume")
+
     try:
         while True:
             print("\nEscolha uma opção abaixo:")
@@ -135,6 +183,8 @@ def main() -> None:
             print("3 -> Sair")
 
             opcao = input("Digite a opção desejada: ")
+            resultado = "Area" if opcao == '1' else "Volume" if opcao == '2' else "Saindo..."
+            log("INFO", getpass.getuser(), f"Opcao Selecionada: {opcao}", f"{resultado}")
             match opcao:
                 case '1':
                     print("Escolha uma opção abaixo:")
@@ -160,8 +210,7 @@ def main() -> None:
                 case _:
                     log("WARNING", getpass.getuser(), "Opcao de calculo invalida", "Novo Loop de Calculo!")
                     print("Opção inválida. Por favor, escolha uma opção válida.")
-            resultado = "Area" if opcao == '1' else "Volume" if opcao == '2' else "Saindo..."
-            log("INFO", getpass.getuser(), f"Opcao Selecionada: {opcao}!", f"{resultado}")
+
     except KeyboardInterrupt as e:
         log("ERROR", getpass.getuser(), "Erro na função main", f"{e}")
 
